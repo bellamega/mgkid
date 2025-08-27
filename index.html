@@ -15,7 +15,7 @@
       background: radial-gradient(ellipse at center, #1a0d00 0%, #0d0a07 100%);
       color: #f5d76e;
       position: relative;
-      overflow-x: hidden;
+      overflow-x: hidden
     }
     body::before {
       content: '';
@@ -60,6 +60,35 @@
       background-clip: text;
       text-shadow: 0 0 10px rgba(255, 215, 0, 0.6);
     }
+
+.nav-link {
+  position: relative;
+  text-decoration: none;
+  /* Properti lain seperti warna dan font */
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  display: block;
+  margin-top: 5px; /* Sesuaikan jarak dari teks */
+  left: 0;
+  background-color: #ffff00; /* Warna kuning menyala */
+  transition: width 0.3s ease; /* Efek transisi halus */
+}
+
+.nav-link:hover::after {
+  width: 100%;
+}
+
+.flex-container {
+  display: flex;
+  align-items: center; /* Pastikan ini ada */
+  gap: 2rem; /* Atur jarak horizontal sesuai kebutuhan */
+}
+
   </style>
 </head>
 <body class="min-h-screen text-yellow-100 relative">
@@ -76,20 +105,20 @@
       <a href="#contact" class="nav-link text-sm font-semibold">Contact</a>
     </nav>
 <div class="flex items-center space-x-4">
-  <input
-    type="text"
-    placeholder="Search..."
-    class="px-4 py-2 rounded-lg bg-transparent backdrop-blur-md text-sm text-yellow-300 placeholder-yellow-200
-           ring-1 ring-yellow-500 shadow-[0_0_8px_rgba(255,215,0,0.3)]
-           focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:ring-offset-2 focus:ring-offset-black 
-           focus:shadow-[0_0_12px_rgba(255,215,0,0.6)] transition duration-300"
-  />
-  <button>
-    <svg class="w-6 h-6 text-yellow-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-      <path stroke-linecap="round" stroke-linejoin="round" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V4a2 2 0 10-4 0v1.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" />
-    </svg>
-  </button>
-  <div class="text-white font-semibold">Drake</div>
+  
+
+<div class="flex-container">
+<a href="perusahaan.html"
+   class="relative px-6 py-3 rounded-lg font-semibold border border-yellow-500 bg-transparent backdrop-blur-md 
+   text-yellow-300 transition-all duration-300 ease-in-out
+   shadow-[0_0_15px_rgba(255,215,0,0.3)] 
+   hover:bg-yellow-400 hover:text-white hover:border-yellow-300 
+   hover:shadow-[0_0_35px_8px_rgba(255,215,0,0.7)] hover:scale-105">
+   Untuk Perusahaan
+</a>
+    <a href="#login" class="nav-link text-sm font-semibold">Log In</a>
+</div>
+
 </div>
 
 
@@ -206,7 +235,7 @@
 
   <!-- Subtext -->
   <p class="mt-3 text-lg text-yellow-300 opacity-90 drop-shadow-[0_0_8px_rgba(250,204,21,0.7)]">
-    Pilih Role Kamu sesuai dengan Minat dan Bakatmu
+    Temukan Pekerjaan Sesuai dengan Role
   </p>
 
   <!-- Card Section -->
@@ -275,8 +304,25 @@
         <p class="text-sm text-gray-400">0.26 ETH</p>
       </div>
     </div>
-  </section>
 
+</section>    
+ 
+<div class="flex items-center justify-center space-x-4 mt-10">
+  <div class="h-1 w-16 bg-gradient-to-r from-yellow-500 to-transparent rounded-full"></div>
+  <h2 class="text-4xl font-extrabold text-yellow-400 drop-shadow-[0_0_15px_rgba(250,204,21,0.8)] animate-pulse">
+    PERUSAHAAN DARI BERBAGAI KOTA DI INDONESIA
+  </h2>
+  <div class="h-1 w-16 bg-gradient-to-l from-yellow-500 to-transparent rounded-full"></div>
+</div>
+
+  <!-- Subtext -->
+  <p class="mt-3 text-lg text-yellow-300 opacity-90 drop-shadow-[0_0_8px_rgba(250,204,21,0.7)]">
+    Temukan Pekerjaan dari Berbagai Kota
+  </p>
+
+  <img src="images/indonesia-map.png" alt="Deskripsi Gambar" width="914" height="312" class="mt-8 mx-auto">
+  
+</div>
   <!-- FOOTER -->
   <footer class="mt-16 bg-zinc-950 py-10">
     <div class="container mx-auto px-6 text-center text-gray-500 text-sm">
