@@ -1,0 +1,342 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Magank ID - Lowongan Kerja</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Rye&family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Roboto', sans-serif;
+      background: radial-gradient(ellipse at center, #1a0d00 0%, #0d0a07 100%);
+      color: #f5d76e;
+      position: relative;
+      overflow-x: hidden;
+    }
+    body::before {
+      content: '';
+      position: absolute;
+      top: 30%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 800px;
+      height: 800px;
+      background: radial-gradient(circle, rgba(255,215,0,0.15) 0%, transparent 70%);
+      filter: blur(100px);
+      z-index: 0;
+    }
+    .glass {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border-radius: 20px;
+      position: relative;
+      z-index: 10;
+    }
+    .gold-gradient {
+      background: linear-gradient(to right, #FFD700, #FFA500);
+      color: #1a1a1a;
+      box-shadow: 0 0 15px rgba(255, 215, 0, 0.6);
+    }
+    .text-gold {
+      background: linear-gradient(to right, #FFD700, #FFA500);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .nav-link {
+      transition: all 0.3s ease;
+    }
+    .nav-link:hover,
+    .nav-link.active {
+      background: linear-gradient(to right, #FFD700, #FFA500);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      text-shadow: 0 0 10px rgba(255, 215, 0, 0.6);
+    }
+
+.nav-link {
+  position: relative;
+  text-decoration: none;
+  /* Properti lain seperti warna dan font */
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  display: block;
+  margin-top: 5px; /* Sesuaikan jarak dari teks */
+  left: 0;
+  background-color: #ffff00; /* Warna kuning menyala */
+  transition: width 0.3s ease; /* Efek transisi halus */
+}
+
+.nav-link:hover::after {
+  width: 100%;
+}
+
+.flex-container {
+  display: flex;
+  align-items: center; /* Pastikan ini ada */
+  gap: 2rem; /* Atur jarak horizontal sesuai kebutuhan */
+}
+
+  </style>
+</head>
+<body class="min-h-screen text-yellow-100 relative">
+
+  <!-- HEADER -->
+  <header class="w-full px-6 py-4 flex justify-between items-center glass shadow-xl z-10 relative">
+    <div class="flex items-center space-x-4">
+      <img src="images/magankidlogo.png" alt="Logo" class="h-10" />
+    </div>
+    <nav class="hidden md:flex items-center space-x-6">
+      <a href="#" class="nav-link active text-sm font-semibold">Home</a>
+      <a href="#about" class="nav-link text-sm font-semibold">Tentang Perusahaan</a>
+      <a href="#jobs" class="nav-link text-sm font-semibold">Promo Iklan</a>
+      <a href="#contact" class="nav-link text-sm font-semibold">Bantuan</a>
+    </nav>
+<div class="flex items-center space-x-4">
+  
+
+<div class="flex-container">
+    <button
+      class="relative px-6 py-3 rounded-lg font-semibold border border-yellow-500 bg-transparent backdrop-blur-md 
+             text-yellow-300 transition-all duration-300 ease-in-out
+             shadow-[0_0_15px_rgba(255,215,0,0.3)] 
+             hover:bg-yellow-400 hover:text-white hover:border-yellow-300 
+             hover:shadow-[0_0_35px_8px_rgba(255,215,0,0.7)] hover:scale-105">
+      Untuk Perusahaan
+    </button>
+    <a href="#login" class="nav-link text-sm font-semibold">Log In</a>
+</div>
+
+</div>
+
+
+
+  </header>
+
+  <!-- HERO -->
+<section class="container mx-auto mt-10 px-6">
+  <div class="glass flex flex-col md:flex-row justify-between items-center p-8">
+    <div class="max-w-lg">
+      <h2 class="text-3xl md:text-5xl font-bold leading-tight text-white mb-4">
+       Posting Lowongan <span class="text-gold">Dapatkan Talent</span> Terbaik
+      </h2>
+
+
+<div class="flex items-center space-x-6">
+<a href="daftar_perusahaan.html"
+  class="relative px-6 py-3 rounded-lg font-semibold border border-yellow-500 backdrop-blur-md 
+  bg-yellow-400 text-white transition-all duration-300 ease-in-out
+  shadow-[0_0_15px_rgba(255,215,0,0.3)] 
+  hover:bg-yellow-500 hover:text-white hover:border-yellow-300 
+  hover:shadow-[0_0_35px_8px_rgba(255,215,0,0.7)] hover:scale-105">
+  Daftar
+</a>
+  
+  <a href="#" 
+     class="relative font-semibold text-yellow-300 transition-all duration-300 ease-in-out
+     hover:text-yellow-100 hover:shadow-[0_0_15px_8px_rgba(255,215,0,0.5)] 
+     hover:scale-110">
+    Masuk
+  </a>
+</div>
+
+    </div>
+    <!-- Carousel: Career Quest ↔ Human Lord -->
+<div id="heroCarousel" class="relative mt-6 md:mt-0" style="width: 500px; height: auto;">
+  <div class="overflow-hidden relative rounded-lg" style="width: 500px; height: auto;">
+    <!-- Slide 1 -->
+    <img
+      src="images/gerbang.png"
+      alt="career quest"
+      class="slide block w-full h-auto"
+      loading="lazy" />
+
+    <!-- Slide 2 -->
+    <img
+      src="images/papan-loker.png"
+      alt="human lord"
+      class="slide block w-full h-auto"
+      loading="lazy" />
+  </div>
+
+  <!-- (opsional) Dots indicator -->
+  <div class="absolute left-1/2 -translate-x-1/2 bottom-3 flex gap-2">
+    <button class="dot w-2.5 h-2.5 rounded-full bg-gray-300 aria-selected:bg-gray-800" aria-label="Slide 1"></button>
+    <button class="dot w-2.5 h-2.5 rounded-full bg-gray-300 aria-selected:bg-gray-800" aria-label="Slide 2"></button>
+  </div>
+
+  <!-- (opsional) Prev / Next -->
+  <button type="button" class="nav prev absolute left-2 top-1/2 -translate-y-1/2 px-2 py-1 rounded bg-black/40 text-white hidden md:block" aria-label="Previous">‹</button>
+  <button type="button" class="nav next absolute right-2 top-1/2 -translate-y-1/2 px-2 py-1 rounded bg-black/40 text-white hidden md:block" aria-label="Next">›</button>
+</div>
+
+<style>
+  #heroCarousel .slide {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    transition: opacity .6s ease;
+  }
+  #heroCarousel .slide.active { opacity: 1; position: relative; }
+  #heroCarousel .dot[aria-selected="true"] { background: #111; }
+</style>
+
+<script>
+  (function () {
+    const root   = document.getElementById('heroCarousel');
+    const slides = Array.from(root.querySelectorAll('.slide'));
+    const dots   = Array.from(root.querySelectorAll('.dot'));
+    const prev   = root.querySelector('.prev');
+    const next   = root.querySelector('.next');
+
+    let i = 0;
+    const show = (n) => {
+      i = (n + slides.length) % slides.length;
+      slides.forEach((s, idx) => s.classList.toggle('active', idx === i));
+      dots.forEach((d, idx) => d.setAttribute('aria-selected', idx === i ? 'true' : 'false'));
+    };
+
+    // init
+    slides[0].classList.add('active');
+    if (dots[0]) dots[0].setAttribute('aria-selected', 'true');
+
+    // autoplay
+    let timer = setInterval(() => show(i + 1), 3500);
+
+    // pause on hover
+    root.addEventListener('mouseenter', () => clearInterval(timer));
+    root.addEventListener('mouseleave', () => (timer = setInterval(() => show(i + 1), 3500)));
+
+    // controls
+    dots.forEach((d, idx) => d.addEventListener('click', () => show(idx)));
+    if (prev) prev.addEventListener('click', () => show(i - 1));
+    if (next) next.addEventListener('click', () => show(i + 1));
+  })();
+</script>
+
+
+
+  </div>
+</section>
+
+  <!-- TRENDING AUCTIONS -->
+<section class="container mx-auto mt-16 px-6 text-center">
+  <!-- Title dengan efek glowing -->
+  <div class="flex items-center justify-center space-x-4">
+    <div class="h-1 w-16 bg-gradient-to-r from-yellow-500 to-transparent rounded-full"></div>
+    <h2 class="text-4xl font-extrabold text-yellow-400 drop-shadow-[0_0_15px_rgba(250,204,21,0.8)] animate-pulse">
+      TEMUKAN TALENT 
+    </h2>
+    <div class="h-1 w-16 bg-gradient-to-l from-yellow-500 to-transparent rounded-full"></div>
+  </div>
+
+  <!-- Subtext -->
+  <p class="mt-3 text-lg text-yellow-300 opacity-90 drop-shadow-[0_0_8px_rgba(250,204,21,0.7)]">
+    Temukan Talent Sesuai Kriteria Perusahaan
+  </p>
+
+  <!-- Card Section -->
+<!-- Card Section -->
+<div class="flex justify-center space-x-6 overflow-x-auto pb-6 mt-8">
+  <div class="min-w-[300px] glass p-5 rounded-2xl shadow-lg transform transition duration-300 hover:scale-105 hover:shadow-yellow-500/50">
+    <img src="images/humanlord-card.png" class="w-full h-60 object-cover rounded-xl mb-3" />
+    <h4 class="text-xl font-semibold text-white">Golden King Armor</h4>
+    <p class="text-base text-gray-400">1.23 ETH</p>
+  </div>
+
+  <div class="min-w-[300px] glass p-5 rounded-2xl shadow-lg transform transition duration-300 hover:scale-105 hover:shadow-yellow-500/50">
+    <img src="images/elfcard.png" class="w-full h-60 object-cover rounded-xl mb-3" />
+    <h4 class="text-xl font-semibold text-white">Royal Magic Book</h4>
+    <p class="text-base text-gray-400">0.98 ETH</p>
+  </div>
+
+  <div class="min-w-[300px] glass p-5 rounded-2xl shadow-lg transform transition duration-300 hover:scale-105 hover:shadow-yellow-500/50">
+    <img src="images/cyborg-card.png" class="w-full h-60 object-cover rounded-xl mb-3" />
+    <h4 class="text-xl font-semibold text-white">Royal Magic Book</h4>
+    <p class="text-base text-gray-400">0.98 ETH</p>
+  </div>
+
+
+  <div class="min-w-[300px] glass p-5 rounded-2xl shadow-lg transform transition duration-300 hover:scale-105 hover:shadow-yellow-500/50">
+    <img src="images/beast-card.png" class="w-full h-60 object-cover rounded-xl mb-3" />
+    <h4 class="text-xl font-semibold text-white">Royal Magic Book</h4>
+    <p class="text-base text-gray-400">0.98 ETH</p>
+  </div>
+
+
+  <div class="min-w-[300px] glass p-5 rounded-2xl shadow-lg transform transition duration-300 hover:scale-105 hover:shadow-yellow-500/50">
+    <img src="images/otherworld-card.png" class="w-full h-60 object-cover rounded-xl mb-3" />
+    <h4 class="text-xl font-semibold text-white">Royal Magic Book</h4>
+    <p class="text-base text-gray-400">0.98 ETH</p>
+  </div>
+
+</div>
+
+
+  
+
+
+  <!-- Testimoni Perusahaan -->
+  <section class="container mx-auto mt-10 px-6">
+    <h3 class="text-2xl font-bold mb-4 text-gold">Testimoni Client dari Perusahaan</h3>
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+      <div class="glass p-4 rounded-xl shadow-lg">
+        <img src="https://i.imgur.com/DYw7jfb.png" class="w-full h-24 object-contain mb-2" />
+        <h5 class="text-white font-semibold">Hextech Ring</h5>
+        <p class="text-sm text-gray-400">0.32 ETH</p>
+      </div>
+      <div class="glass p-4 rounded-xl shadow-lg">
+        <img src="https://i.imgur.com/mcW3uj5.png" class="w-full h-24 object-contain mb-2" />
+        <h5 class="text-white font-semibold">Knight's Axe</h5>
+        <p class="text-sm text-gray-400">$1,722</p>
+      </div>
+      <div class="glass p-4 rounded-xl shadow-lg">
+        <img src="https://i.imgur.com/nR1NoiI.png" class="w-full h-24 object-contain mb-2" />
+        <h5 class="text-white font-semibold">Wizard Potion</h5>
+        <p class="text-sm text-gray-400">$2,600</p>
+      </div>
+      <div class="glass p-4 rounded-xl shadow-lg">
+        <img src="https://i.imgur.com/9wIvmL1.png" class="w-full h-24 object-contain mb-2" />
+        <h5 class="text-white font-semibold">Eagle Archery</h5>
+        <p class="text-sm text-gray-400">0.26 ETH</p>
+      </div>
+    </div>
+
+</section>    
+ 
+<div class="flex items-center justify-center space-x-4 mt-10">
+  <div class="h-1 w-16 bg-gradient-to-r from-yellow-500 to-transparent rounded-full"></div>
+  <h2 class="text-4xl font-extrabold text-yellow-400 drop-shadow-[0_0_15px_rgba(250,204,21,0.8)] animate-pulse">
+    TALENT DARI BERBAGAI KOTA DI INDONESIA
+  </h2>
+  <div class="h-1 w-16 bg-gradient-to-l from-yellow-500 to-transparent rounded-full"></div>
+</div>
+
+  <!-- Subtext -->
+  <p class="mt-3 text-lg text-yellow-300 opacity-90 drop-shadow-[0_0_8px_rgba(250,204,21,0.7)]">
+    Talent Terbaik dari Berbagai Kota
+  </p>
+
+  <img src="images/indonesia-map.png" alt="Deskripsi Gambar" width="914" height="312" class="mt-8 mx-auto">
+  
+</div>
+  <!-- FOOTER -->
+  <footer class="mt-16 bg-zinc-950 py-10">
+    <div class="container mx-auto px-6 text-center text-gray-500 text-sm">
+      &copy; 2025 Magang Quest. All rights reserved.
+    </div>
+  </footer>
+</body>
+</html>
