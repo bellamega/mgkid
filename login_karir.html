@@ -8,79 +8,125 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
-    <style>
-        body {
-            font-family: 'Roboto', sans-serif;
-            background: radial-gradient(ellipse at center, #1a0d00 0%, #0d0a07 100%);
-            color: #f5d76e;
-            position: relative;
-            overflow-x: hidden;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-        }
-        body::before {
-            content: '';
-            position: absolute;
-            top: 30%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 800px;
-            height: 800px;
-            background: radial-gradient(circle, rgba(255,215,0,0.15) 0%, transparent 70%);
-            filter: blur(100px);
-            z-index: 0;
-        }
-        .glass {
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            backdrop-filter: blur(14px);
-            -webkit-backdrop-filter: blur(14px);
-            border-radius: 20px;
-            position: relative;
-            z-index: 10;
-        }
-        .text-gold {
-            background: linear-gradient(to right, #FFD700, #FFA500);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-        .input-glass {
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(255, 215, 0, 0.2);
-            color: #f5d76e;
-            transition: all 0.3s ease;
-        }
-        .input-glass:focus {
-            outline: none;
-            border-color: #ffd700;
-            box-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
-        }
-        .btn-gold {
-            background: linear-gradient(to right, #FFD700, #FFA500);
-            color: #1a1a1a;
-            box-shadow: 0 0 15px rgba(255, 215, 0, 0.6);
-            transition: all 0.3s ease;
-        }
-        .btn-gold:hover {
-            transform: scale(1.03);
-            box-shadow: 0 0 25px rgba(255, 215, 0, 0.8);
-        }
-        .btn-outline-gold {
-            background: transparent;
-            border: 1px solid #FFD700;
-            color: #FFD700;
-            transition: all 0.3s ease;
-        }
-        .btn-outline-gold:hover {
-            background: rgba(255, 215, 0, 0.2);
-            box-shadow: 0 0 15px rgba(255, 215, 0, 0.6);
-            transform: scale(1.03);
-        }
-    </style>
+   <style>
+    body {
+        font-family: 'Roboto', sans-serif;
+        background: radial-gradient(ellipse at center, #1a0d00 0%, #0d0a07 100%);
+        color: #f5d76e;
+        position: relative;
+        overflow-x: hidden;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+    }
+    body::before {
+        content: '';
+        position: absolute;
+        top: 30%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 800px;
+        height: 800px;
+        background: radial-gradient(circle, rgba(230,194,0,0.15) 0%, transparent 70%);
+        filter: blur(100px);
+        z-index: 0;
+    }
+
+    /* Glass effect */
+    .glass {
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        backdrop-filter: blur(14px);
+        -webkit-backdrop-filter: blur(14px);
+        border-radius: 20px;
+        position: relative;
+        z-index: 10;
+    }
+
+    /* Text gold gradient */
+    .text-gold {
+        background: linear-gradient(to right, #E6C200, #D4AF37);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+    }
+
+    /* Input styling */
+    .input-glass {
+        background: rgba(255, 255, 255, 0.03);
+        border: 1px solid rgba(230, 194, 0, 0.2);
+        color: #f5d76e;
+        transition: all 0.3s ease;
+    }
+    .input-glass:focus {
+        outline: none;
+        border-color: #E6C200;
+        box-shadow: 0 0 10px rgba(230, 194, 0, 0.5);
+    }
+
+    /* Golden button (soft) */
+    .btn-gold {
+        background: #E6C200;
+        color: #fff; /* teks putih */
+        font-weight: 600;
+        box-shadow: 0 0 12px rgba(230, 194, 0, 0.5);
+        transition: all 0.3s ease;
+    }
+    .btn-gold:hover {
+        transform: scale(1.05);
+        background: #D4AF37; /* gold klasik */
+        color: #fff;
+        box-shadow: 0 0 20px rgba(230, 194, 0, 0.8);
+        text-shadow: 0 0 6px rgba(255,255,255,0.7);
+    }
+
+    /* Outline golden button (soft) */
+    .btn-outline-gold {
+        background: transparent;
+        border: 1px solid #E6C200;
+        color: #E6C200;
+        transition: all 0.3s ease;
+    }
+    .btn-outline-gold:hover {
+        background: rgba(230, 194, 0, 0.15);
+        box-shadow: 0 0 12px rgba(230, 194, 0, 0.6);
+        transform: scale(1.03);
+        color: #fff;
+    }
+
+    /* Pop-up Modal */
+    .modal {
+        display: none;
+        position: fixed;
+        z-index: 100;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        backdrop-filter: blur(8px);
+        justify-content: center;
+        align-items: center;
+    }
+    .modal-content {
+        background: rgba(255, 255, 255, 0.08);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 15px;
+        padding: 2.5rem;
+        max-width: 90%;
+        width: 400px;
+        text-align: center;
+        box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    }
+    .modal-buttons {
+        display: flex;
+        justify-content: center;
+        gap: 1rem;
+        margin-top: 2rem;
+    }
+</style>
+
 </head>
 <body class="min-h-screen relative">
     <header class="absolute top-0 left-0 w-full px-6 py-4 flex justify-start glass shadow-xl z-10">
@@ -100,7 +146,7 @@
         </div>
 
         <div class="glass p-8 md:p-12 shadow-xl">
-            <form action="#" method="POST" class="space-y-6">
+            <form id="login-form" action="#" method="POST" class="space-y-6">
                 <div>
                     <label for="username" class="block text-sm font-medium text-yellow-200 mb-2">Username</label>
                     <input type="text" id="username" name="username" required
@@ -114,8 +160,9 @@
                 </div>
 
                 <div class="pt-4">
+                    <!-- Enhanced golden styling for Sign In button -->
                     <button type="submit"
-                            class="w-full px-6 py-3 rounded-lg font-semibold btn-gold shadow-lg hover:scale-103">
+                            class="w-full px-6 py-3 rounded-lg font-bold btn-gold shadow-lg hover:scale-105 text-white">
                         Sign In
                     </button>
                 </div>
@@ -142,6 +189,50 @@
             </form>
         </div>
     </main>
+
+    <!-- Pop-up Modal -->
+    <div id="test-modal" class="modal">
+        <div class="modal-content glass">
+            <h2 class="text-xl font-bold text-yellow-300 mb-4">
+                Kamu belum test potensi?
+            </h2>
+            <p class="text-white">
+                Pilih test dan temukan role!
+            </p>
+            <div class="modal-buttons">
+                <!-- Enhanced golden styling for Ikuti Test button -->
+                <a href="halaman_profile_user.html" class="px-6 py-2 rounded-lg font-bold btn-gold shadow-md text-white">
+                    Ikuti Test
+                </a>
+                <button id="close-modal-btn" class="px-6 py-2 rounded-lg font-semibold btn-outline-gold">
+                    Tutup
+                </button>
+            </div>
+        </div>
+    </div>
     
-    </body>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const form = document.getElementById('login-form');
+            const modal = document.getElementById('test-modal');
+            const closeModalBtn = document.getElementById('close-modal-btn');
+            
+            form.addEventListener('submit', function(event) {
+                event.preventDefault(); // Mencegah form untuk submit secara default
+                modal.style.display = 'flex';
+            });
+
+            closeModalBtn.addEventListener('click', function() {
+                modal.style.display = 'none';
+            });
+
+            // Opsional: Tutup modal ketika mengklik di luar area modal
+            modal.addEventListener('click', function(e) {
+                if (e.target === modal) {
+                    modal.style.display = 'none';
+                }
+            });
+        });
+    </script>
+</body>
 </html>
