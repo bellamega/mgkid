@@ -4,134 +4,122 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Login Karir - Magank ID</title>
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
-   <style>
-    body {
-        font-family: 'Roboto', sans-serif;
-        background: radial-gradient(ellipse at center, #1a0d00 0%, #0d0a07 100%);
-        color: #f5d76e;
-        position: relative;
-        overflow-x: hidden;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        min-height: 100vh;
-    }
-    body::before {
-        content: '';
-        position: absolute;
-        top: 30%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        width: 800px;
-        height: 800px;
-        background: radial-gradient(circle, rgba(230,194,0,0.15) 0%, transparent 70%);
-        filter: blur(100px);
-        z-index: 0;
-    }
-
-    /* Glass effect */
-    .glass {
-        background: rgba(255, 255, 255, 0.05);
-        border: 1px solid rgba(255, 255, 255, 0.08);
-        backdrop-filter: blur(14px);
-        -webkit-backdrop-filter: blur(14px);
-        border-radius: 20px;
-        position: relative;
-        z-index: 10;
-    }
-
-    /* Text gold gradient */
-    .text-gold {
-        background: linear-gradient(to right, #E6C200, #D4AF37);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        background-clip: text;
-    }
-
-    /* Input styling */
-    .input-glass {
-        background: rgba(255, 255, 255, 0.03);
-        border: 1px solid rgba(230, 194, 0, 0.2);
-        color: #f5d76e;
-        transition: all 0.3s ease;
-    }
-    .input-glass:focus {
-        outline: none;
-        border-color: #E6C200;
-        box-shadow: 0 0 10px rgba(230, 194, 0, 0.5);
-    }
-
-    /* Golden button (soft) */
-    .btn-gold {
-        background: #E6C200;
-        color: #fff; /* teks putih */
-        font-weight: 600;
-        box-shadow: 0 0 12px rgba(230, 194, 0, 0.5);
-        transition: all 0.3s ease;
-    }
-    .btn-gold:hover {
-        transform: scale(1.05);
-        background: #D4AF37; /* gold klasik */
-        color: #fff;
-        box-shadow: 0 0 20px rgba(230, 194, 0, 0.8);
-        text-shadow: 0 0 6px rgba(255,255,255,0.7);
-    }
-
-    /* Outline golden button (soft) */
-    .btn-outline-gold {
-        background: transparent;
-        border: 1px solid #E6C200;
-        color: #E6C200;
-        transition: all 0.3s ease;
-    }
-    .btn-outline-gold:hover {
-        background: rgba(230, 194, 0, 0.15);
-        box-shadow: 0 0 12px rgba(230, 194, 0, 0.6);
-        transform: scale(1.03);
-        color: #fff;
-    }
-
-    /* Pop-up Modal */
-    .modal {
-        display: none;
-        position: fixed;
-        z-index: 100;
-        inset: 0;
-        width: 100%;
-        height: 100%;
-        background-color: rgba(0, 0, 0, 0.5);
-        backdrop-filter: blur(8px);
-        justify-content: center;
-        align-items: center;
-    }
-    .modal-content {
-        background: rgba(255, 255, 255, 0.08);
-        border: 1px solid rgba(255, 255, 255, 0.1);
-        border-radius: 15px;
-        padding: 2.5rem;
-        max-width: 90%;
-        width: 400px;
-        text-align: center;
-        box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
-    }
-    .modal-buttons {
-        display: flex;
-        justify-content: center;
-        gap: 1rem;
-        margin-top: 2rem;
-    }
-</style>
-
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background: radial-gradient(ellipse at center, #1a0d00 0%, #0d0a07 100%);
+            color: #f5d76e;
+            position: relative;
+            overflow-x: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        body::before {
+            content: '';
+            position: absolute;
+            top: 30%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 800px;
+            height: 800px;
+            background: radial-gradient(circle, rgba(230,194,0,0.15) 0%, transparent 70%);
+            filter: blur(100px);
+            z-index: 0;
+        }
+        .glass {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+            border-radius: 20px;
+            position: relative;
+            z-index: 10;
+        }
+        .text-gold {
+            background: linear-gradient(to right, #E6C200, #D4AF37);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .input-glass {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(230, 194, 0, 0.2);
+            color: #f5d76e;
+            transition: all 0.3s ease;
+        }
+        .input-glass:focus {
+            outline: none;
+            border-color: #E6C200;
+            box-shadow: 0 0 10px rgba(230, 194, 0, 0.5);
+        }
+        .btn-gold {
+            background: #E6C200;
+            color: #1a1a1a;
+            font-weight: 600;
+            box-shadow: 0 0 12px rgba(230, 194, 0, 0.5);
+            transition: all 0.3s ease;
+        }
+        .btn-gold:hover {
+            transform: scale(1.05);
+            background: #D4AF37;
+            color: #fff;
+            box-shadow: 0 0 20px rgba(230, 194, 0, 0.8);
+            text-shadow: 0 0 6px rgba(255,255,255,0.7);
+        }
+        .btn-outline-gold {
+            background: transparent;
+            border: 1px solid #E6C200;
+            color: #E6C200;
+            transition: all 0.3s ease;
+        }
+        .btn-outline-gold:hover {
+            background: rgba(230, 194, 0, 0.15);
+            box-shadow: 0 0 12px rgba(230, 194, 0, 0.6);
+            transform: scale(1.03);
+            color: #fff;
+        }
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 100;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(8px);
+            justify-content: center;
+            align-items: center;
+        }
+        .modal-content {
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            padding: 2.5rem;
+            max-width: 90%;
+            width: 400px;
+            text-align: center;
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+        }
+        .modal-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+    </style>
 </head>
 <body class="min-h-screen relative">
     <header class="absolute top-0 left-0 w-full px-6 py-4 flex justify-start glass shadow-xl z-10">
         <a href="index.html">
-            <img src="images/magankidlogo.png" alt="Logo Magank ID" class="h-10" />
+            <!-- Teks sebagai pengganti logo gambar untuk menghindari broken image -->
+            <span class="text-3xl font-extrabold text-gold">Magank ID</span>
         </a>
     </header>
 
@@ -146,24 +134,21 @@
         </div>
 
         <div class="glass p-8 md:p-12 shadow-xl">
-            <form id="login-form" action="#" method="POST" class="space-y-6">
+            <form id="login-form" class="space-y-6">
                 <div>
                     <label for="username" class="block text-sm font-medium text-yellow-200 mb-2">Username</label>
                     <input type="text" id="username" name="username" required
                            class="w-full px-4 py-3 rounded-lg input-glass focus:ring-2 focus:ring-yellow-400">
                 </div>
-
                 <div>
                     <label for="password" class="block text-sm font-medium text-yellow-200 mb-2">Password</label>
                     <input type="password" id="password" name="password" required
                            class="w-full px-4 py-3 rounded-lg input-glass focus:ring-2 focus:ring-yellow-400">
                 </div>
-
                 <div class="pt-4">
-                    <!-- Enhanced golden styling for Sign In button -->
                     <button type="submit"
                             class="w-full px-6 py-3 rounded-lg font-bold btn-gold shadow-lg hover:scale-105 text-white">
-                        Sign In
+                        Masuk
                     </button>
                 </div>
                 
@@ -175,14 +160,16 @@
                 <div>
                     <button type="button"
                             class="w-full flex items-center justify-center space-x-2 px-6 py-3 rounded-lg font-semibold btn-outline-gold hover:scale-103">
-                        <img src="images/google-logo.png" alt="Google Logo" class="h-5 w-5" />
-                        <span>Sign In with Google</span>
+                        <svg class="h-5 w-5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="currentColor">
+                            <path d="M12.24 10.284v2.793h4.512c-.198 1.125-.75 2.058-1.74 2.846l-.048.036c-1.002.774-2.202 1.182-3.468 1.182-3.144 0-5.718-2.586-5.718-5.73s2.574-5.73 5.718-5.73c1.782 0 3.258.624 4.38 1.632l2.364-2.364c-1.5-1.428-3.456-2.28-5.694-2.28-4.722 0-8.58 3.858-8.58 8.58s3.858 8.58 8.58 8.58c4.686 0 7.9-3.264 7.9-8.316 0-.582-.048-1.098-.144-1.602H12.24z" fill="#fff" />
+                        </svg>
+                        <span>Masuk dengan Google</span>
                     </button>
                 </div>
 
                 <div class="pt-4 text-center">
                     <p class="text-sm text-yellow-200">
-                        Belum punya akun? 
+                        Belum punya akun?
                         <a href="daftar_akun_pelamar.html" class="text-yellow-400 font-semibold hover:underline">Daftar akun</a>
                     </p>
                 </div>
@@ -190,7 +177,6 @@
         </div>
     </main>
 
-    <!-- Pop-up Modal -->
     <div id="test-modal" class="modal">
         <div class="modal-content glass">
             <h2 class="text-xl font-bold text-yellow-300 mb-4">
@@ -200,7 +186,6 @@
                 Pilih test dan temukan role!
             </p>
             <div class="modal-buttons">
-                <!-- Enhanced golden styling for Ikuti Test button -->
                 <a href="halaman_profile_user.html" class="px-6 py-2 rounded-lg font-bold btn-gold shadow-md text-white">
                     Ikuti Test
                 </a>
@@ -218,7 +203,7 @@
             const closeModalBtn = document.getElementById('close-modal-btn');
             
             form.addEventListener('submit', function(event) {
-                event.preventDefault(); // Mencegah form untuk submit secara default
+                event.preventDefault(); 
                 modal.style.display = 'flex';
             });
 
@@ -226,7 +211,6 @@
                 modal.style.display = 'none';
             });
 
-            // Opsional: Tutup modal ketika mengklik di luar area modal
             modal.addEventListener('click', function(e) {
                 if (e.target === modal) {
                     modal.style.display = 'none';
