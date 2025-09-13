@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tes Karir - Temukan Role Anda</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background: radial-gradient(ellipse at center, #1a0d00 0%, #0d0a07 100%);
+            color: #f5d76e;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        body::before {
+            content: '';
+            position: absolute;
+            top: 30%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 800px;
+            height: 800px;
+            background: radial-gradient(circle, rgba(255,215,0,0.15) 0%, transparent 70%);
+            filter: blur(100px);
+            z-index: 0;
+        }
+        .glass {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+            border-radius: 20px;
+            position: relative;
+            z-index: 10;
+        }
+        .text-gold {
+            background: linear-gradient(to right, #FFD700, #FFA500);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .btn-icon {
+            background: transparent;
+            border: 1px solid rgba(255, 215, 0, 0.2);
+            color: #FFD700;
+            width: 44px;
+            height: 44px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 50%;
+            transition: all 0.3s ease;
+            font-size: 1.5rem;
+        }
+        .btn-icon:hover {
+            background: rgba(255, 215, 0, 0.1);
+            box-shadow: 0 0 10px rgba(255, 215, 0, 0.4);
+        }
+        .btn-solid-gold {
+            background: #FFD700;
+            color: #1a1a1a;
+            box-shadow: 0 0 15px rgba(255, 215, 0, 0.6);
+            transition: all 0.3s ease;
+            font-weight: 600;
+        }
+        .btn-solid-gold:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 25px rgba(255, 215, 0, 0.8);
+            background: #FFC107;
+        }
+        .btn-outline-gold {
+            background: transparent;
+            border: 1px solid #FFD700;
+            color: #FFD700;
+            transition: all 0.3s ease;
+        }
+        .btn-outline-gold:hover {
+            background: rgba(255, 215, 0, 0.2);
+            box-shadow: 0 0 15px rgba(255, 215, 0, 0.6);
+            transform: scale(1.03);
+        }
+        .answer-label {
+            display: block;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 215, 0, 0.2);
+            border-radius: 10px;
+            padding: 1rem;
+            margin-bottom: 0.75rem;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        .answer-label:hover {
+            background: rgba(255, 215, 0, 0.1);
+        }
+        input[type="radio"]:checked + .answer-label {
+            background: rgba(255, 215, 0, 0.2);
+            border-color: #FFD700;
+        }
+        .question-block {
+            display: none;
+        }
+        .question-block.active {
+            display: block;
+        }
+    </style>
+</head>
+<body class="min-h-screen relative">
+    <div class="w-full max-w-2xl mx-auto p-6 md:p-12 z-10">
+        <div class="text-center mb-10">
+            <h1 class="text-4xl font-bold leading-tight text-white mb-2">
+                Tes <span class="text-gold">Karir</span>
+            </h1>
+            <p class="text-lg text-yellow-300 opacity-80">
+                Jawab 10 pertanyaan untuk menemukan role Anda.
+            </p>
+        </div>
+
+        <div class="glass p-8 md:p-12 shadow-xl">
+            <div id="quiz-container">
+                <form id="quiz-form" class="space-y-8">
+                    <!-- Question 1 -->
+                    <div class="question-block active" data-question-index="0">
+                        <p class="text-lg font-medium text-white mb-4">1. Bagaimana Anda mendekati masalah yang kompleks?</p>
+                        <div class="space-y-3">
+                            <input type="radio" name="q1" id="q1a" value="A" class="hidden">
+                            <label for="q1a" class="answer-label">A. Saya menganalisis data dan mengikuti proses logis langkah demi langkah.</label>
+                            <input type="radio" name="q1" id="q1b" value="B" class="hidden">
+                            <label for="q1b" class="answer-label">B. Saya mengandalkan naluri dan pengalaman praktis.</label>
+                            <input type="radio" name="q1" id="q1c" value="C" class="hidden">
+                            <label for="q1c" class="answer-label">C. Saya mencari ide-ide kreatif dan pendekatan yang unik.</label>
+                            <input type="radio" name="q1" id="q1d" value="D" class="hidden">
+                            <label for="q1d" class="answer-label">D. Saya berkonsultasi dengan orang lain untuk solusi kolaboratif.</label>
+                            <input type="radio" name="q1" id="q1e" value="E" class="hidden">
+                            <label for="q1e" class="answer-label">E. Saya beradaptasi dengan situasi, menggunakan apa pun yang tersedia.</label>
+                        </div>
+                    </div>
+
+                    <!-- Question 2 -->
+                    <div class="question-block" data-question-index="1">
+                        <p class="text-lg font-medium text-white mb-4">2. Apa yang paling memotivasi Anda?</p>
+                        <div class="space-y-3">
+                            <input type="radio" name="q2" id="q2a" value="A" class="hidden">
+                            <label for="q2a" class="answer-label">A. Tantangan menguasai sistem atau keterampilan baru.</label>
+                            <input type="radio" name="q2" id="q2b" value="B" class="hidden">
+                            <label for="q2b" class="answer-label">B. Semangat berkompetisi dan mencapai hasil yang nyata.</label>
+                            <input type="radio" name="q2" id="q2c" value="C" class="hidden">
+                            <label for="q2c" class="answer-label">C. Mengejar pertumbuhan pribadi dan ekspresi diri.</label>
+                            <input type="radio" name="q2" id="q2d" value="D" class="hidden">
+                            <label for="q2d" class="answer-label">D. Keinginan untuk membantu dan terhubung dengan orang lain.</label>
+                            <input type="radio" name="q2" id="q2e" value="E" class="hidden">
+                            <label for="q2e" class="answer-label">E. Kebutuhan untuk menjadi berguna dan mudah beradaptasi.</label>
+                        </div>
+                    </div>
+
+                    <!-- Question 3 -->
+                    <div class="question-block" data-question-index="2">
+                        <p class="text-lg font-medium text-white mb-4">3. Jenis pekerjaan apa yang Anda sukai?</p>
+                        <div class="space-y-3">
+                            <input type="radio" name="q3" id="q3a" value="A" class="hidden">
+                            <label for="q3a" class="answer-label">A. Pekerjaan yang membutuhkan presisi dan pemikiran analitis.</label>
+                            <input type="radio" name="q3" id="q3b" value="B" class="hidden">
+                            <label for="q3b" class="answer-label">B. Pekerjaan yang menghasilkan hasil fisik yang nyata.</label>
+                            <input type="radio" name="q3" id="q3c" value="C" class="hidden">
+                            <label for="q3c" class="answer-label">C. Proyek kreatif yang memungkinkan imajinasi.</label>
+                            <input type="radio" name="q3" id="q3d" value="D" class="hidden">
+                            <label for="q3d" class="answer-label">D. Pekerjaan yang melibatkan memimpin atau mengorganisasi tim.</label>
+                            <input type="radio" name="q3" id="q3e" value="E" class="hidden">
+                            <label for="q3e" class="answer-label">E. Pekerjaan yang mengharuskan saya bertindak cepat dan serba bisa.</label>
+                        </div>
+                    </div>
+
+                    <!-- Question 4 -->
+                    <div class="question-block" data-question-index="3">
+                        <p class="text-lg font-medium text-white mb-4">4. Apa ketakutan terbesar Anda?</p>
+                        <div class="space-y-3">
+                            <input type="radio" name="q4" id="q4a" value="A" class="hidden">
+                            <label for="q4a" class="answer-label">A. Membuat kesalahan logis yang menyebabkan kegagalan.</label>
+                            <input type="radio" name="q4" id="q4b" value="B" class="hidden">
+                            <label for="q4b" class="answer-label">B. Tidak mampu secara fisik melakukan suatu tugas.</label>
+                            <input type="radio" name="q4" id="q4c" value="C" class="hidden">
+                            <label for="q4c" class="answer-label">C. Kehilangan kreativitas atau terjebak dalam rutinitas.</label>
+                            <input type="radio" name="q4" id="q4d" value="D" class="hidden">
+                            <label for="q4d" class="answer-label">D. Mengecewakan orang atau dianggap tidak membantu.</label>
+                            <input type="radio" name="q4" id="q4e" value="E" class="hidden">
+                            <label for="q4e" class="answer-label">E. Berada dalam situasi di mana saya tidak siap dan tidak bisa beradaptasi.</label>
+                        </div>
+                    </div>
+
+                    <!-- Question 5 -->
+                    <div class="question-block" data-question-index="4">
+                        <p class="text-lg font-medium text-white mb-4">5. Bagaimana Anda mengisi ulang energi setelah hari yang panjang?</p>
+                        <div class="space-y-3">
+                            <input type="radio" name="q5" id="q5a" value="A" class="hidden">
+                            <label for="q5a" class="answer-label">A. Saya membaca buku atau menonton film dokumenter tentang topik yang kompleks.</label>
+                            <input type="radio" name="q5" id="q5b" value="B" class="hidden">
+                            <label for="q5b" class="answer-label">B. Saya berolahraga atau melakukan hobi fisik.</label>
+                            <input type="radio" name="q5" id="q5c" value="C" class="hidden">
+                            <label for="q5c" class="answer-label">C. Saya mendengarkan musik, menonton film, atau menciptakan sesuatu.</label>
+                            <input type="radio" name="q5" id="q5d" value="D" class="hidden">
+                            <label for="q5d" class="answer-label">D. Saya menghabiskan waktu bersama teman atau keluarga.</label>
+                            <input type="radio" name="q5" id="q5e" value="E" class="hidden">
+                            <label for="q5e" class="answer-label">E. Saya melakukan sesuatu yang produktif dan praktis di sekitar rumah.</label>
+                        </div>
+                    </div>
+
+                    <!-- Question 6 -->
+                    <div class="question-block" data-question-index="5">
+                        <p class="text-lg font-medium text-white mb-4">6. Apa yang paling Anda hargai dalam sebuah tim?</p>
+                        <div class="space-y-3">
+                            <input type="radio" name="q6" id="q6a" value="A" class="hidden">
+                            <label for="q6a" class="answer-label">A. Logika dan efisiensi.</label>
+                            <input type="radio" name="q6" id="q6b" value="B" class="hidden">
+                            <label for="q6b" class="answer-label">B. Kekuatan dan ketahanan.</label>
+                            <input type="radio" name="q6" id="q6c" value="C" class="hidden">
+                            <label for="q6c" class="answer-label">C. Kreativitas dan inovasi.</label>
+                            <input type="radio" name="q6" id="q6d" value="D" class="hidden">
+                            <label for="q6d" class="answer-label">D. Empati dan kolaborasi.</label>
+                            <input type="radio" name="q6" id="q6e" value="E" class="hidden">
+                            <label for="q6e" class="answer-label">E. Kemampuan beradaptasi dan keandalan.</label>
+                        </div>
+                    </div>
+
+                    <!-- Question 7 -->
+                    <div class="question-block" data-question-index="6">
+                        <p class="text-lg font-medium text-white mb-4">7. Bagaimana Anda menangani krisis?</p>
+                        <div class="space-y-3">
+                            <input type="radio" name="q7" id="q7a" value="A" class="hidden">
+                            <label for="q7a" class="answer-label">A. Saya membuat rencana strategis dan melaksanakannya dengan tepat.</label>
+                            <input type="radio" name="q7" id="q7b" value="B" class="hidden">
+                            <label for="q7b" class="answer-label">B. Saya bertindak cepat berdasarkan insting saya.</label>
+                            <input type="radio" name="q7" id="q7c" value="C" class="hidden">
+                            <label for="q7c" class="answer-label">C. Saya menciptakan solusi baru yang belum terpikirkan orang lain.</label>
+                            <input type="radio" name="q7" id="q7d" value="D" class="hidden">
+                            <label for="q7d" class="answer-label">D. Saya mengumpulkan tim dan fokus pada dukungan emosional.</label>
+                            <input type="radio" name="q7" id="q7e" value="E" class="hidden">
+                            <label for="q7e" class="answer-label">E. Saya tetap tenang dan berimprovisasi sesuai kebutuhan.</label>
+                        </div>
+                    </div>
+
+                    <!-- Question 8 -->
+                    <div class="question-block" data-question-index="7">
+                        <p class="text-lg font-medium text-white mb-4">8. Lingkungan kerja seperti apa yang Anda sukai?</p>
+                        <div class="space-y-3">
+                            <input type="radio" name="q8" id="q8a" value="A" class="hidden">
+                            <label for="q8a" class="answer-label">A. Terstruktur dan terorganisir.</label>
+                            <input type="radio" name="q8" id="q8b" value="B" class="hidden">
+                            <label for="q8b" class="answer-label">B. Serba cepat dan menantang.</label>
+                            <input type="radio" name="q8" id="q8c" value="C" class="hidden">
+                            <label for="q8c" class="answer-label">C. Fleksibel dan menginspirasi.</label>
+                            <input type="radio" name="q8" id="q8d" value="D" class="hidden">
+                            <label for="q8d" class="answer-label">D. Kolaboratif dan suportif.</label>
+                            <input type="radio" name="q8" id="q8e" value="E" class="hidden">
+                            <label for="q8e" class="answer-label">E. Praktis dan tidak terduga.</label>
+                        </div>
+                    </div>
+
+                    <!-- Question 9 -->
+                    <div class="question-block" data-question-index="8">
+                        <p class="text-lg font-medium text-white mb-4">9. Bagaimana cara terbaik Anda belajar?</p>
+                        <div class="space-y-3">
+                            <input type="radio" name="q9" id="q9a" value="A" class="hidden">
+                            <label for="q9a" class="answer-label">A. Dengan mempelajari teori dan data.</label>
+                            <input type="radio" name="q9" id="q9b" value="B" class="hidden">
+                            <label for="q9b" class="answer-label">B. Dengan melakukan dan praktik langsung.</label>
+                            <input type="radio" name="q9" id="q9c" value="C" class="hidden">
+                            <label for="q9c" class="answer-label">C. Dengan membayangkan dan memvisualisasikan konsep.</label>
+                            <input type="radio" name="q9" id="q9d" value="D" class="hidden">
+                            <label for="q9d" class="answer-label">D. Dengan berdiskusi dan mengajar orang lain.</label>
+                            <input type="radio" name="q9" id="q9e" value="E" class="hidden">
+                            <label for="q9e" class="answer-label">E. Dengan mengamati dan bereksperimen.</label>
+                        </div>
+                    </div>
+
+                    <!-- Question 10 -->
+                    <div class="question-block" data-question-index="9">
+                        <p class="text-lg font-medium text-white mb-4">10. Apa kegiatan akhir pekan ideal Anda?</p>
+                        <div class="space-y-3">
+                            <input type="radio" name="q10" id="q10a" value="A" class="hidden">
+                            <label for="q10a" class="answer-label">A. Memecahkan teka-teki atau bermain game strategi.</label>
+                            <input type="radio" name="q10" id="q10b" value="B" class="hidden">
+                            <label for="q10b" class="answer-label">B. Melakukan olahraga luar ruangan atau aktivitas fisik.</label>
+                            <input type="radio" name="q10" id="q10c" value="C" class="hidden">
+                            <label for="q10c" class="answer-label">C. Menjelajahi pameran seni baru atau menulis.</label>
+                            <input type="radio" name="q10" id="q10d" value="D" class="hidden">
+                            <label for="q10d" class="answer-label">D. Mengadakan pesta makan malam atau menjadi sukarelawan.</label>
+                            <input type="radio" name="q10" id="q10e" value="E" class="hidden">
+                            <label for="q10e" class="answer-label">E. Memperbaiki sesuatu atau mempelajari keterampilan praktis baru.</label>
+                        </div>
+                    </div>
+
+                    <p id="error-message" class="text-red-400 text-center mt-4 hidden"></p>
+
+                    <div class="mt-8 flex justify-between items-center">
+                        <button id="prev-btn" type="button" class="btn-icon hidden">
+                            &lt;
+                        </button>
+                        <div class="flex-grow"></div>
+                        <button id="next-btn" type="button" class="btn-icon">
+                            &gt;
+                        </button>
+                        <button id="submit-btn" type="submit" class="hidden px-8 py-3 rounded-lg font-bold btn-solid-gold shadow-lg text-white">
+                            Lihat Hasil
+                        </button>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Result Display -->
+            <div id="result-display" class="hidden p-4 text-center space-y-4">
+                <div id="result-title" class="text-3xl font-bold"></div>
+                <div id="result-subtitle" class="text-xl text-yellow-300 opacity-90"></div>
+                <div id="professions-list" class="text-left mt-6"></div>
+                <p id="note" class="text-sm opacity-70 mt-8"></p>
+                <a href="halaman_profile_user.html" class="px-6 py-2 inline-block rounded-lg font-semibold btn-solid-gold shadow-md text-white mt-8">
+                    Kembali ke Profil
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const form = document.getElementById('quiz-form');
+            const questions = document.querySelectorAll('.question-block');
+            const nextBtn = document.getElementById('next-btn');
+            const prevBtn = document.getElementById('prev-btn');
+            const submitBtn = document.getElementById('submit-btn');
+            const quizContainer = document.getElementById('quiz-container');
+            const resultDisplay = document.getElementById('result-display');
+            const resultTitle = document.getElementById('result-title');
+            const resultSubtitle = document.getElementById('result-subtitle');
+            const professionsList = document.getElementById('professions-list');
+            const noteText = document.getElementById('note');
+            const errorMessage = document.getElementById('error-message');
+
+            let currentQuestionIndex = 0;
+            let userAnswers = {};
+
+            const professions = {
+                'Humanlord': ['Customer service', 'Humas', 'Project Lead', 'Guru', 'HR', 'Mentor', 'Sosial manager', 'Public speaker', 'Promotor', 'Psikolog', 'Sales', 'Motivator', 'Lawyer'],
+                'Beast': ['Ekonom', 'Atlit', 'Pebisnis', 'Sejarawan', 'Jurnalis', 'Artis', 'Manufacturing', 'Pilot', 'Model', 'Salesman', 'Administrasi'],
+                'Cyborg': ['Dokter', 'Apoteker', 'Manager', 'Fisikawan', 'Data analis', 'IT', 'Birokrat', 'Quality control', 'Developer', 'Konsultan manajemen'],
+                'Elf': ['Entrepreneur', 'Desainer', 'Animator', 'Cinematograph', 'Sastrawan', 'Penulis', 'Filsuf', 'Arsitek', 'Sutradara', 'Event organizer', 'Creator'],
+                'Otherworldly': ['Pemadam', 'Perawat', 'Ulama', 'Aktivis', 'Chef', 'Musisi', 'Mediator', 'Personal Asistant', 'Serba bisa']
+            };
+
+            // New scoring matrix for weighted scoring
+            const scoringMatrix = {
+                'q1': {
+                    'A': { Cyborg: 5, Beast: 2, Elf: 1, Humanlord: 1, Otherworldly: 1 },
+                    'B': { Beast: 5, Otherworldly: 3, Cyborg: 1, Elf: 1, Humanlord: 1 },
+                    'C': { Elf: 5, Humanlord: 2, Otherworldly: 2, Cyborg: 1, Beast: 1 },
+                    'D': { Humanlord: 5, Elf: 2, Otherworldly: 1, Cyborg: 1, Beast: 1 },
+                    'E': { Otherworldly: 5, Beast: 4, Humanlord: 1, Cyborg: 1, Elf: 1 }
+                },
+                'q2': {
+                    'A': { Cyborg: 5, Beast: 3, Elf: 1, Humanlord: 1, Otherworldly: 1 },
+                    'B': { Beast: 5, Cyborg: 2, Otherworldly: 2, Humanlord: 1, Elf: 1 },
+                    'C': { Elf: 5, Otherworldly: 3, Humanlord: 2, Cyborg: 1, Beast: 1 },
+                    'D': { Humanlord: 5, Elf: 3, Otherworldly: 2, Cyborg: 1, Beast: 1 },
+                    'E': { Otherworldly: 5, Beast: 4, Humanlord: 1, Cyborg: 1, Elf: 1 }
+                },
+                'q3': {
+                    'A': { Cyborg: 5, Beast: 2, Humanlord: 1, Elf: 1, Otherworldly: 1 },
+                    'B': { Beast: 5, Otherworldly: 3, Cyborg: 1, Elf: 1, Humanlord: 1 },
+                    'C': { Elf: 5, Humanlord: 3, Otherworldly: 2, Cyborg: 1, Beast: 1 },
+                    'D': { Humanlord: 5, Elf: 2, Otherworldly: 2, Cyborg: 1, Beast: 1 },
+                    'E': { Otherworldly: 5, Beast: 4, Humanlord: 1, Cyborg: 1, Elf: 1 }
+                },
+                'q4': {
+                    'A': { Cyborg: 5, Otherworldly: 1, Humanlord: 1, Elf: 1, Beast: 1 },
+                    'B': { Beast: 5, Otherworldly: 2, Cyborg: 1, Elf: 1, Humanlord: 1 },
+                    'C': { Elf: 5, Humanlord: 2, Otherworldly: 2, Cyborg: 1, Beast: 1 },
+                    'D': { Humanlord: 5, Elf: 2, Otherworldly: 1, Cyborg: 1, Beast: 1 },
+                    'E': { Otherworldly: 5, Beast: 4, Cyborg: 1, Elf: 1, Humanlord: 1 }
+                },
+                'q5': {
+                    'A': { Cyborg: 5, Elf: 2, Humanlord: 1, Beast: 1, Otherworldly: 1 },
+                    'B': { Beast: 5, Otherworldly: 3, Cyborg: 1, Elf: 1, Humanlord: 1 },
+                    'C': { Elf: 5, Humanlord: 2, Otherworldly: 2, Cyborg: 1, Beast: 1 },
+                    'D': { Humanlord: 5, Elf: 3, Otherworldly: 2, Cyborg: 1, Beast: 1 },
+                    'E': { Otherworldly: 5, Beast: 4, Humanlord: 1, Cyborg: 1, Elf: 1 }
+                },
+                'q6': {
+                    'A': { Cyborg: 5, Beast: 2, Otherworldly: 1, Elf: 1, Humanlord: 1 },
+                    'B': { Beast: 5, Otherworldly: 3, Cyborg: 2, Elf: 1, Humanlord: 1 },
+                    'C': { Elf: 5, Humanlord: 2, Otherworldly: 2, Cyborg: 1, Beast: 1 },
+                    'D': { Humanlord: 5, Elf: 3, Otherworldly: 2, Cyborg: 1, Beast: 1 },
+                    'E': { Otherworldly: 5, Beast: 4, Humanlord: 1, Cyborg: 1, Elf: 1 }
+                },
+                'q7': {
+                    'A': { Cyborg: 5, Beast: 2, Otherworldly: 1, Elf: 1, Humanlord: 1 },
+                    'B': { Beast: 5, Otherworldly: 4, Cyborg: 1, Elf: 1, Humanlord: 1 },
+                    'C': { Elf: 5, Otherworldly: 3, Humanlord: 2, Cyborg: 1, Beast: 1 },
+                    'D': { Humanlord: 5, Elf: 2, Otherworldly: 2, Cyborg: 1, Beast: 1 },
+                    'E': { Otherworldly: 5, Beast: 4, Humanlord: 1, Cyborg: 1, Elf: 1 }
+                },
+                'q8': {
+                    'A': { Cyborg: 5, Humanlord: 2, Beast: 1, Elf: 1, Otherworldly: 1 },
+                    'B': { Beast: 5, Cyborg: 3, Otherworldly: 2, Elf: 1, Humanlord: 1 },
+                    'C': { Elf: 5, Otherworldly: 2, Humanlord: 2, Cyborg: 1, Beast: 1 },
+                    'D': { Humanlord: 5, Elf: 3, Otherworldly: 2, Cyborg: 1, Beast: 1 },
+                    'E': { Otherworldly: 5, Beast: 4, Humanlord: 1, Cyborg: 1, Elf: 1 }
+                },
+                'q9': {
+                    'A': { Cyborg: 5, Humanlord: 1, Beast: 1, Elf: 1, Otherworldly: 1 },
+                    'B': { Beast: 5, Otherworldly: 3, Cyborg: 2, Elf: 1, Humanlord: 1 },
+                    'C': { Elf: 5, Humanlord: 3, Otherworldly: 2, Cyborg: 1, Beast: 1 },
+                    'D': { Humanlord: 5, Elf: 2, Otherworldly: 2, Cyborg: 1, Beast: 1 },
+                    'E': { Otherworldly: 5, Beast: 4, Humanlord: 1, Cyborg: 1, Elf: 1 }
+                },
+                'q10': {
+                    'A': { Cyborg: 5, Otherworldly: 1, Beast: 1, Elf: 1, Humanlord: 1 },
+                    'B': { Beast: 5, Otherworldly: 3, Cyborg: 2, Elf: 1, Humanlord: 1 },
+                    'C': { Elf: 5, Otherworldly: 2, Humanlord: 2, Cyborg: 1, Beast: 1 },
+                    'D': { Humanlord: 5, Elf: 3, Otherworldly: 2, Cyborg: 1, Beast: 1 },
+                    'E': { Otherworldly: 5, Beast: 4, Humanlord: 1, Cyborg: 1, Elf: 1 }
+                }
+            };
+            
+            const showQuestion = (index) => {
+                questions.forEach((q, i) => {
+                    q.classList.remove('active');
+                    if (i === index) {
+                        q.classList.add('active');
+                    }
+                });
+
+                if (index === 0) {
+                    prevBtn.classList.add('hidden');
+                } else {
+                    prevBtn.classList.remove('hidden');
+                }
+
+                if (index === questions.length - 1) {
+                    nextBtn.classList.add('hidden');
+                    submitBtn.classList.remove('hidden');
+                } else {
+                    nextBtn.classList.remove('hidden');
+                    submitBtn.classList.add('hidden');
+                }
+                errorMessage.classList.add('hidden');
+            };
+
+            const displayResults = (title, subtitle, content) => {
+                quizContainer.classList.add('hidden');
+                resultDisplay.classList.remove('hidden');
+
+                resultTitle.innerHTML = title;
+                resultSubtitle.innerHTML = subtitle;
+                professionsList.innerHTML = '';
+
+                if (content) {
+                    const ul = document.createElement('ul');
+                    ul.className = 'list-disc list-inside space-y-1 text-white opacity-80';
+                    content.forEach(prof => {
+                        const li = document.createElement('li');
+                        li.textContent = prof;
+                        ul.appendChild(li);
+                    });
+                    professionsList.appendChild(ul);
+                }
+                
+                noteText.textContent = "Catatan: Profesi di atas adalah rekomendasi terbaik setiap role, bukan berarti wajib sesuai.";
+            };
+
+            const checkAnswers = () => {
+                const scores = {
+                    'Cyborg': 0,
+                    'Beast': 0,
+                    'Elf': 0,
+                    'Humanlord': 0,
+                    'Otherworldly': 0
+                };
+
+                for (const qKey in userAnswers) {
+                    const answerChoice = userAnswers[qKey];
+                    const questionScores = scoringMatrix[qKey][answerChoice];
+                    
+                    for (const role in questionScores) {
+                        scores[role] += questionScores[role];
+                    }
+                }
+
+                const sortedScores = Object.entries(scores).sort(([, a], [, b]) => b - a);
+                
+                const topRole = sortedScores[0][0];
+                const topScore = sortedScores[0][1];
+                
+                let secondRole = null;
+                let secondScore = 0;
+                
+                if (sortedScores.length > 1) {
+                    secondRole = sortedScores[1][0];
+                    secondScore = sortedScores[1][1];
+                }
+
+                const title = `<span class="text-gold">Role Anda adalah ${topRole}!</span>`;
+                let subtitle = `Rekomendasi profesi untuk Anda:`;
+
+                let combinedProfessions = professions[topRole];
+
+                if (secondRole && secondScore > (topScore * 0.6)) {
+                     subtitle = `Anda adalah ${topRole} dengan sedikit ciri ${secondRole}. Rekomendasi profesi untuk Anda:`;
+                     const secondProfessions = professions[secondRole].slice(0, 3); // Ambil 3 profesi dari role kedua
+                     combinedProfessions = [...professions[topRole], ...secondProfessions];
+                }
+
+                displayResults(title, subtitle, combinedProfessions);
+            };
+
+            const showErrorMessage = (message) => {
+                errorMessage.textContent = message;
+                errorMessage.classList.remove('hidden');
+            };
+
+            nextBtn.addEventListener('click', () => {
+                const currentQuestion = questions[currentQuestionIndex];
+                const selected = currentQuestion.querySelector('input[type="radio"]:checked');
+                
+                if (selected) {
+                    userAnswers[`q${currentQuestionIndex + 1}`] = selected.value;
+                    currentQuestionIndex++;
+                    if (currentQuestionIndex < questions.length) {
+                        showQuestion(currentQuestionIndex);
+                    }
+                } else {
+                    showErrorMessage("Silakan pilih jawaban sebelum melanjutkan.");
+                }
+            });
+
+            prevBtn.addEventListener('click', () => {
+                if (currentQuestionIndex > 0) {
+                    currentQuestionIndex--;
+                    showQuestion(currentQuestionIndex);
+                }
+            });
+
+            form.addEventListener('submit', (e) => {
+                e.preventDefault();
+                const lastQuestion = questions[questions.length - 1];
+                const selected = lastQuestion.querySelector('input[type="radio"]:checked');
+
+                if (selected) {
+                    userAnswers[`q${questions.length}`] = selected.value;
+                    checkAnswers();
+                } else {
+                    showErrorMessage("Silakan pilih jawaban sebelum melihat hasil.");
+                }
+            });
+            
+            showQuestion(currentQuestionIndex);
+        });
+    </script>
+</body>
+</html>
